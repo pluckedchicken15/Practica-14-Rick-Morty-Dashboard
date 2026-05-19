@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Explorer | Rick & Morty Dashboard</title>
+    <meta name="description" content="Explore Rick and Morty characters with this clean and modern dashboard. Search, filter, and save your favorites.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Character Explorer</h1>
+                <div class="controls">
+                    <div class="search-wrapper">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="characterSearch" placeholder="Search characters..." aria-label="Search characters">
+                    </div>
+                    <div class="filter-wrapper">
+                        <select id="statusFilter" aria-label="Filter by status">
+                            <option value="all">All Status</option>
+                            <option value="alive">Alive</option>
+                            <option value="dead">Dead</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-layout">
+            <section class="characters-section">
+                <div id="charactersGrid" class="characters-grid">
+                    <!-- Character cards will be injected here -->
+                    <div class="loader-container" id="loader">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <div id="noResults" class="empty-state hidden">
+                    <i data-lucide="search-x"></i>
+                    <p>No characters found matching your criteria.</p>
+                </div>
+                <div class="pagination">
+                    <button id="prevPage" disabled>Previous</button>
+                    <span id="pageInfo">Page 1</span>
+                    <button id="nextPage">Next</button>
+                </div>
+            </section>
+
+            <aside class="favorites-sidebar">
+                <div class="favorites-header">
+                    <i data-lucide="star" class="star-icon"></i>
+                    <h2>Favorites</h2>
+                </div>
+                <div id="favoritesList" class="favorites-list">
+                    <div class="empty-favorites">
+                        <p>No favorites yet</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
